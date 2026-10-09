@@ -15,9 +15,13 @@ public class ConsoleCarWriter implements CarWriter {
     }
 
     @Override
-    public void Write() throws IllegalAccessException {
+    public void Write() {
         for (Car car : this.cars) {
-            PrintCar(car);
+            try {
+                PrintCar(car);
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

@@ -12,16 +12,7 @@ public class Main {
         CarReader reader = new URLCarReader(url);
         CarWriter writer = new ConsoleCarWriter(reader.ReadAllCars());
         CarWriter FileWriter = new FileCarWriter(reader.ReadAllCars());
-
-        try {
-            writer.Write();
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-        try {
-            FileWriter.Write();
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
+        writer.Write();
+        FileWriter.Write();
     }
 }

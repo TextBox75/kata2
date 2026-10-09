@@ -17,11 +17,15 @@ public class FileCarReader implements CarReader {
     }
 
     @Override
-    public List<Car> ReadAllCars() throws IOException {
+    public List<Car> ReadAllCars() {
         try (FileInputStream is = new FileInputStream(carFile)) {
             List<Car> cars = ReadLines(is);
             is.close();
             return cars;
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

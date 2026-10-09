@@ -21,8 +21,12 @@ public class URLCarReader implements CarReader {
     }
 
     @Override
-    public List<Car> ReadAllCars() throws IOException {
-        return ReadLines(url.openStream());
+    public List<Car> ReadAllCars() {
+        try {
+            return ReadLines(url.openStream());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private List<Car> ReadLines(InputStream stream) throws IOException {

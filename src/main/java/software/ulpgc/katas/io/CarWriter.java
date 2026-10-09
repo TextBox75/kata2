@@ -5,5 +5,5 @@ import software.ulpgc.katas.model.Car;
 import java.util.List;
 
 public interface CarWriter {
-    void Write() throws IllegalAccessException;
+    void Write();
 }
