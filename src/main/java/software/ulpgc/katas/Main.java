@@ -1,14 +1,14 @@
 package software.ulpgc.katas;
 
-import software.ulpgc.katas.io.CarReader;
-import software.ulpgc.katas.io.FileCarReader;
+import software.ulpgc.katas.io.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class Main {
     static void main() throws IOException {
-        CarReader reader = new FileCarReader(new File("car.csv"));
-        System.out.println(reader.ReadAllCars());
+        URL url = new URL("https://raw.githubusercontent.com/sachin365123/CSV-files-for-Data-Science-and-Machine-Learning/refs/heads/main/car.csv");
+        CarReader reader = new URLCarReader(url);
     }
 }

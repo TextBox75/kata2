@@ -4,30 +4,30 @@ import software.ulpgc.katas.model.Car;
 import software.ulpgc.katas.model.Fuel;
 import software.ulpgc.katas.model.Transmission;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileCarReader implements CarReader {
+public class URLCarReader implements CarReader {
 
-    private final File carFile;
+    URL url;
 
-    public FileCarReader(File carFile) {
-        this.carFile = carFile;
+    public URLCarReader(URL url) {
+        this.url = url;
     }
 
     @Override
     public List<Car> ReadAllCars() throws IOException {
-        try (FileInputStream is = new FileInputStream(carFile)) {
-            List<Car> cars = ReadLines(is);
-            is.close();
-            return cars;
-        }
+        return ReadLines(url.openStream());
     }
 
-    private List<Car> ReadLines(FileInputStream stream) throws IOException {
-        try (InputStreamReader isr = new InputStreamReader(stream)) {
-            return ReadLines(new BufferedReader(isr));
+    private List<Car> ReadLines(InputStream stream) throws IOException {
+        try (Reader reader = new InputStreamReader(stream)) {
+            return ReadLines(reader);
         }
     }
 
@@ -40,7 +40,6 @@ public class FileCarReader implements CarReader {
         for (int i = 1; i < lines.size(); i++) {
             cars.add(ReadLines(lines.get(i)));
         }
-
         return cars;
     }
 
