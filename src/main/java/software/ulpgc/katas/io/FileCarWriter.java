@@ -7,19 +7,11 @@ import java.io.IOException;
 import java.util.List;
 
 public class FileCarWriter implements CarWriter {
-
-    private final List<Car> cars;
-
-    public FileCarWriter(List<Car> cars) {
-        this.cars = cars;
-    }
-
     @Override
-    public void WriteManuals(int manuals) {
+    public void WriteLine(String line) {
         try {
             FileOutputStream fos = new FileOutputStream("./car-output.txt");
-            fos.write("Manual cars read: ".getBytes());
-            fos.write(String.valueOf(manuals).getBytes());
+            fos.write(line.getBytes());
             fos.close();
         } catch (IOException e) {
             throw new RuntimeException(e);

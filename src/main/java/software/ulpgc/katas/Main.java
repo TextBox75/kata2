@@ -7,24 +7,18 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
-import static software.ulpgc.katas.model.Transmission.*;
-
 public class Main {
     static void main() throws IOException {
         URL url = new URL("https://raw.githubusercontent.com/sachin365123/CSV-files-for-Data-Science-and-Machine-Learning/refs/heads/main/car.csv");
         CarReader reader = new URLCarReader(url);
         List<Car> cars = reader.ReadAllCars();
 
-        int manuals = 0;
-        for (Car car : cars) {
-            if (car.transmissionType() == Manual) {
-                manuals++;
-            }
-        }
+        CarMetrics metrics = new CarMetrics(cars);
+        CarWriter writer = new ConsoleCarWriter();
+        CarWriter FileWriter = new FileCarWriter();
 
-        CarWriter writer = new ConsoleCarWriter(cars);
-        CarWriter FileWriter = new FileCarWriter(cars);
-        writer.WriteManuals(manuals);
-        FileWriter.WriteManuals(manuals);
+        int manuals = metrics.countManuals();
+        writer.WriteLine("Manual cars: " + manuals);
+        FileWriter.WriteLine("Manual cars: " + manuals);
     }
 }
