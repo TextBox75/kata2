@@ -1,12 +1,12 @@
 package software.ulpgc.katas;
 
 import software.ulpgc.katas.io.FileWineReader;
+import software.ulpgc.katas.io.FileWineWriter;
 import software.ulpgc.katas.io.WineReader;
+import software.ulpgc.katas.io.WineWriter;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.List;
+import java.util.Objects;
 
 public class Main {
     static void main() {
