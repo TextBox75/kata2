@@ -48,16 +48,18 @@ public class URLPassengerReader implements PassengerReader {
     }
 
     private Passenger ReadLines(String line) {
-        return ReadLines(line.split(","));
+        String[] fields = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+        if (fields[2].isEmpty()) fields[2] = "0.0";
+        return ReadLines(fields);
     }
 
     private Passenger ReadLines(String[] fields) {
         return new Passenger(
-                fields[0] + fields[1],
-                PassengerClass.fromString(fields[2]),
-                Float.parseFloat(fields[3]),
-                Gender.valueOf(fields[4]),
-                Integer.parseInt(fields[5])
+                fields[0],
+                PassengerClass.fromString(fields[1]),
+                Float.parseFloat(fields[2]),
+                Gender.valueOf(fields[3]),
+                Integer.parseInt(fields[4])
         );
     }
 }
