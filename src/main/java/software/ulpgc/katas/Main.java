@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Main {
     static void main() throws IOException {
-        URL url = new URL("https://raw.githubusercontent.com/sachin365123/CSV-files-for-Data-Science-and-Machine-Learning/refs/heads/main/Passenger .csv");
+        URL url = new URL("https://raw.githubusercontent.com/sachin365123/CSV-files-for-Data-Science-and-Machine-Learning/refs/heads/main/Titanic.csv");
         PassengerReader reader = new URLPassengerReader(url);
         List<Passenger> Passengers = reader.ReadAllPassengers();
 
