@@ -12,7 +12,7 @@ public class Main {
     static void main() throws IOException {
         URL url = new URL("https://raw.githubusercontent.com/sachin365123/CSV-files-for-Data-Science-and-Machine-Learning/refs/heads/main/Titanic.csv");
         PassengerReader urlReader = new URLPassengerReader(url);
-        PassengerReader fileReader = new FilePassengerReader(new File("./Titanic.csv"));
+        PassengerReader fileReader = new FilePassengerReader(new File("./io/Titanic.csv"));
 
         List<Passenger> urlPassengers = urlReader.ReadAllPassengers();
         List<Passenger> filePassengers = fileReader.ReadAllPassengers();
@@ -21,10 +21,10 @@ public class Main {
         PassengerMetrics fileMetrics = new PassengerMetrics(filePassengers);
 
         PassengerWriter urlConsoleWriter = new ConsolePassengerWriter();
-        PassengerWriter urlFileWriter = new FilePassengerWriter("./url-passenger-output.txt");
+        PassengerWriter urlFileWriter = new FilePassengerWriter("./io/url-passenger-output.txt");
 
         PassengerWriter fileConsoleWriter = new ConsolePassengerWriter();
-        PassengerWriter fileFileWriter = new FilePassengerWriter("./file-passenger-output.txt");
+        PassengerWriter fileFileWriter = new FilePassengerWriter("./io/file-passenger-output.txt");
 
         int urlSurvived = urlMetrics.countSurvivedPassengers();
         int fileSurvived = fileMetrics.countSurvivedPassengers();
