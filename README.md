@@ -5,7 +5,8 @@ El objetivo de esta kata es el de estudiar el sistema de entrada y salida de Jav
 
 ### Como compilar y ejecutar
 Clonar el repositorio con `git clone https://github.com/TextBox75/kata2.git` y abrir la carpeta con IntelliJ IDEA y OpenJDK 25.
-Finalmente ejecutar la clase Main. El repositorio no tiene ninguna dependencia externa.
+Finalmente, ejecutar la clase Main. En los microproyectos también se incluyen pruebas de verificación que se pueden ejecutar.
+La única dependencia de este proyecto es JUnit Jupiter 6.1.3.
 
 ### Estructura de la entrega
 El proyecto se divide en 3 branches principales:
@@ -29,8 +30,5 @@ Los escritores que se han implementado para cada microproyecto son dos. Un escri
 Pendiente
 
 ### Verificación
-La clase Main de cada branch instancia dos lectores, un analizador de metricas y dos escritores en ese orden.
-El motivo de que hayan pares de lectores y escritores es por el hecho de que se prueba a leer datos tanto desde ficheros como URLs.
-Al final del main se imprime a consola la métrica calculada a partir de las dos fuentes y también se escribe en un fichero.
-El hecho de que todos los escritores escriban el mismo dato con independencia del destino de escritura significa que 
-se está leyendo y procesando correctamente los datos.
+La verificación se ha realizado mediante pruebas automatizadas de JUnit Jupiter. Hay 4 ficheros distintos de pruebas que estudian
+el comportamiento de los diferentes escritores y lectores de los microproyectos según los casos descritos en la kata.
