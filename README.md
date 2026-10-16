@@ -27,7 +27,7 @@ al cabo, ya sea la de leer datos, escribir datos o calcular atributos derivados.
 Los escritores que se han implementado para cada microproyecto son dos. Un escritor de ficheros y un escritor de consola.
 
 ### Enlace al vídeo
-Pendiente
+https://youtu.be/WRxTPzm0NRo
 
 ### Verificación
 La verificación se ha realizado mediante pruebas automatizadas de JUnit Jupiter. Hay 4 ficheros distintos de pruebas que estudian
